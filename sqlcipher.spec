@@ -2,10 +2,12 @@
 %define libname %mklibname %{name} %{major}
 %define develname %mklibname %{name} -d
 
+%define _disable_lto 1
+
 Summary:	An SQLite extension that provides 256 bit AES encryption of database files
 Name:		sqlcipher
 Version:	3.3.1
-Release:	%mkrel 1
+Release:	1
 License:	BSD-style
 Group:		System/Libraries
 URL:		https://www.zetetic.net/sqlcipher/
@@ -55,7 +57,7 @@ files.
 
 %build
 export CFLAGS="%optflags -DSQLITE_HAS_CODEC"
-%configure2_5x --disable-static --disable-tcl --enable-tempstore=yes
+%configure --disable-static --disable-tcl --enable-tempstore=yes
 %make
 
 %install
@@ -75,13 +77,4 @@ rm -f %{buildroot}%{_libdir}/*.la
 %{_includedir}/%{name}
 %{_libdir}/lib%{name}.so
 %{_libdir}/pkgconfig/%{name}.pc
-
-
-%changelog
-* Fri Aug 28 2015 fwang <fwang> 3.3.1-1.mga6
-+ Revision: 870661
-- add doc files
-- use correct build flags as suggested by upstream
-- update license
-- imported package sqlcipher
 
