@@ -14,8 +14,9 @@ License:	BSD-style
 Group:		System/Libraries
 URL:		https://www.zetetic.net/sqlcipher/
 Source0:	https://github.com/sqlcipher/sqlcipher/archive/%{name}-%{version}.tar.gz
-BuildRequires:	openssl-devel
-BuildRequires:	readline-devel
+BuildRequires:	pkgconfig(openssl)
+BuildRequires:	pkgconfig(readline)
+BuildRequires:	pkgconfig(zlib)
 BuildRequires:	tcl
 
 %description
