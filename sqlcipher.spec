@@ -4,8 +4,6 @@
 
 %define _disable_lto 1
 
-%global optflags %{optflags} --rtlib=compiler-rt
-
 Summary:	An SQLite extension that provides 256 bit AES encryption of database files
 Name:		sqlcipher
 Version:	4.2.0
@@ -59,9 +57,9 @@ files.
 %setup -qn %{name}-%{version}
 
 %build
-#export CC=gcc
-#export CXX=g++
-%global ldflags %{ldflags} -fuse-ld=bfd
+export CC=gcc
+export CXX=g++
+%global ldflags %{ldflags} -fuse-ld=gold
 export CFLAGS="%optflags -DSQLITE_HAS_CODEC"
 %configure --disable-static --disable-tcl --enable-tempstore=yes
 %make_build
