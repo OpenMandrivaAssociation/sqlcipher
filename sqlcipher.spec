@@ -60,6 +60,7 @@ files.
 export CC=gcc
 export CXX=g++
 %global ldflags %{ldflags} -fuse-ld=gold
+%global ldflags %{ldflags} -Wl,-z,notext
 export CFLAGS="%optflags -DSQLITE_HAS_CODEC"
 %configure --disable-static --disable-tcl --enable-tempstore=yes
 %make_build
