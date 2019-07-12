@@ -59,6 +59,8 @@ files.
 %setup -qn %{name}-%{version}
 
 %build
+export CC=gcc
+export CXX=g++
 export CFLAGS="%optflags -DSQLITE_HAS_CODEC"
 %configure --disable-static --disable-tcl --enable-tempstore=yes
 %make_build
