@@ -2,18 +2,18 @@
 %define libname %mklibname %{name} %{major}
 %define develname %mklibname %{name} -d
 
-%define _disable_lto 1
+#define _disable_lto 1
 
 %global optflags %{optflags} --rtlib=compiler-rt
 
 Summary:	An SQLite extension that provides 256 bit AES encryption of database files
 Name:		sqlcipher
-Version:	4.2.0
+Version:	4.3.0
 Release:	1
 License:	BSD-style
 Group:		System/Libraries
 URL:		https://www.zetetic.net/sqlcipher/
-Source0:	https://github.com/sqlcipher/sqlcipher/archive/%{name}-%{version}.tar.gz
+Source0:	https://github.com/sqlcipher/sqlcipher/archive/v%{version}/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(openssl)
 BuildRequires:	pkgconfig(readline)
 BuildRequires:	pkgconfig(zlib)
@@ -56,7 +56,7 @@ This package contains the static %{libname} library and its header
 files.
 
 %prep
-%setup -qn %{name}-%{version}
+%autosetup -p1
 
 %build
 export CFLAGS="%optflags -DSQLITE_HAS_CODEC"
