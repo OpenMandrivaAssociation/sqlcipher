@@ -8,7 +8,7 @@
 
 Summary:	An SQLite extension that provides 256 bit AES encryption of database files
 Name:		sqlcipher
-Version:	4.4.1
+Version:	4.4.2
 Release:	1
 License:	BSD-style
 Group:		System/Libraries
